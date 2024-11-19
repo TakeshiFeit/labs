@@ -28,22 +28,21 @@ num2some = ('zero',
             '.' * 15)  #F
 
 def check():
-    cond = False
-    while cond == False:
-        txt = file.readline().split()
-        num = []
+    txt = file.readline().split()
+    num = []
+    while txt != []:
         for item in txt:
             try:
                 q = int(item, 16)
                 num.append(item)
-                cond = True
             except ValueError:
                 pass
+        txt = file.readline().split()
     return num
 
 num = check()
 Max = int(num[0], 16) - 1
-
+m = []
 while num != []:
     for i in range(len(num)):
         if int(num[i], 16) > 0:
@@ -60,5 +59,7 @@ while num != []:
         txt2 = [int(txt2[x], 16) for x in range(2, len(txt2), 2)]
         replaced += q.sub(lambda x: num2some[int(x.group())], str(txt2))
         num[i] = replaced[:1] + sign + replaced[1:]
-        print (num[i]) if (cond == True) else()
+        m.append(num[i]) if (cond == True) else()
     num = check()
+
+print(m[-1])
