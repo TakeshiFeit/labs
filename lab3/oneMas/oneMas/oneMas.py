@@ -26,31 +26,30 @@ num2word = {'0': ' zero ',
             'F': '.' * 15,
             '-': '-'}
 
-cond = False
-while cond == False:
-    txt = file.readline().split()
-    for item in txt:
-        try:
-            Max = int(item, 16) - 1 
-            cond = True
-            break
-        except ValueError:
-            pass
+def check():
+    cond = False
+    while cond == False:
+        txt = file.readline().split()
+        num = []
+        for item in txt:
+            try:
+                q = int(item, 16)
+                num.append(item)
+                cond = True
+            except ValueError:
+                pass
+    return num
 
-while txt != []:
-    for i in range(len(txt)):
-        a = 0
-        for j in (txt[i]):
-            if str(j) not in (num2word):
-                a += 1
-        if a > 0:
-            continue
+num = check()
+Max = int(num[0], 16) - 1
+while num != []:
+    for i in range(len(num)):
         cond = False
-        if Max < int(txt[i],16):
-            Max = int(txt[i],16)
+        if Max < int(num[i],16):
+            Max = int(num[i],16)
             cond = True
-        txt2 = "".join(num2word.get(j, j) for j in txt[i])
-        txt[i] = txt2
+        txt2 = "".join(num2word.get(j, j) for j in num[i])
+        num[i] = txt2
         if cond:
-            print (txt[i])
-    txt = file.readline().split()
+            print (num[i])
+    num = check()
