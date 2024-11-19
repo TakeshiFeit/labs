@@ -29,8 +29,16 @@ num2some = ('zero',
 
 something = ('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', '-') 
 
-txt = file.readline().split()
-Max = - 2 ** 63
+cond = False
+while cond == False:
+    txt = file.readline().split()
+    for item in txt:
+        try:
+            Max = int(item, 16) - 1 
+            cond = True
+            break
+        except ValueError:
+            pass
 
 while txt != []:
     for i in range(len(txt)):
