@@ -9,7 +9,7 @@ import timeit
 import math
 from functools import lru_cache
 
-@lru_cache(maxsize=None)
+@lru_cache(maxsize=128)
 def F_recursive(n):
     if n == 1 or n == 0:
         return 3
