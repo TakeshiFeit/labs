@@ -27,29 +27,29 @@ num2word = {'0': ' zero ',
             '-': '-'}
 
 def check():
-    cond = False
-    while cond == False:
-        txt = file.readline().split()
-        num = []
+    txt = file.readline().split()
+    num = []
+    while txt != []:
         for item in txt:
             try:
                 q = int(item, 16)
                 num.append(item)
-                cond = True
             except ValueError:
                 pass
+        txt = file.readline().split()
     return num
 
+m = []
 num = check()
 Max = int(num[0], 16) - 1
-while num != []:
-    for i in range(len(num)):
-        cond = False
-        if Max < int(num[i],16):
-            Max = int(num[i],16)
-            cond = True
-        txt2 = "".join(num2word.get(j, j) for j in num[i])
-        num[i] = txt2
-        if cond:
-            print (num[i])
-    num = check()
+for i in range(len(num)):
+    cond = False
+    if Max < int(num[i],16):
+        Max = int(num[i],16)
+        cond = True
+    txt2 = "".join(num2word.get(j, j) for j in num[i])
+    num[i] = txt2
+    if cond:
+        m.append(num[i])
+
+print(m[-1], "max number")
