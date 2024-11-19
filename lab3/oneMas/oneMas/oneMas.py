@@ -26,9 +26,16 @@ num2word = {'0': ' zero ',
             'F': '.' * 15,
             '-': '-'}
 
-txt = file.readline().split()
-
-Max = -2**63
+cond = False
+while cond == False:
+    txt = file.readline().split()
+    for item in txt:
+        try:
+            Max = int(item, 16) - 1 
+            cond = True
+            break
+        except ValueError:
+            pass
 
 while txt != []:
     for i in range(len(txt)):
