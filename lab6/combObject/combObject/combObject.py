@@ -21,7 +21,7 @@ def algo_without_func(num):
     return numbers
 
 def algo_with_func(num):
-    return list(filter(lambda num: (str(num).count('1') == 1 and num % 2 == 0), range(num + 1)))
+    return list(filter(lambda num: (str(num).count('1') == 1), range(num + 1)))
 
 def compare_perfomance(n):
 
