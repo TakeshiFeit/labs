@@ -21,7 +21,7 @@ def algo_without_func(num):
     return numbers
 
 def algo_with_func(num):
-    return list(filter(lambda num: (str(num).count('1') == 1 and num % 2 == 0), range(0, num + 1, 2)))
+    return list(filter(lambda num: (str(num).count('1') == 1), range(0, num + 1, 2)))
 
 def compare_perfomance(n):
 
@@ -44,5 +44,6 @@ without_func_time, with_func_time, numbers = compare_perfomance(n)
 print ('time required to execute algo_without_func =', without_func_time)
 print('time required to execute algo_with_func =', with_func_time)
 
-print(numbers[-1])
+print('max number = ', numbers[-1])
+print('numbers: ', numbers)
 
