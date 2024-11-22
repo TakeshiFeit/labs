@@ -1,30 +1,32 @@
-﻿import timeit
+# 1 часть – написать программу в соответствии со своим вариантом задания. Написать 2 варианта
+# формирования (алгоритмический и с помощью функций Питона), сравнив по времени их выполнение.
+# усложнить написанную программу, введя по своему усмотрению в условие минимум одно
+# ограничение на характеристики объектов (которое будет сокращать количество переборов) и целевую
+# функцию для нахождения оптимального решения.
+# Вывести все натуральные числа до n, в записи которых встречается ровно одна единица.
+
+import timeit
 
 def algo_without_func(num):
     numbers = []
     for i in range(num + 1):
-        counter1 = 0; counter2 = 0 
+        counter1 = 0
         for symbol in str(i):
-            if symbol == '1':
+            if symbol == '1' and counter1 < 2: 
                 counter1 += 1
-            elif symbol == '2':
-                counter2 += 1
-        if ((counter1 and counter2) == 1):
-            numbers.append(i)
+            else:
+                counter1 = 2
+                break 
+            numbers.append(i) if (counter1 == 1) else ()
     return numbers
-
 
 def algo_with_func(num):
-    numbers = []
-    for i in range(num + 1):
-        if str(i).count('1') == 1 and str(i).count('2') == 1:
-            numbers.append(i)
-    return numbers
-
+    return list(filter(lambda num: (str(num).count('1') == 1 and num % 2 == 0), range(num + 1)))
 
 def compare_perfomance(n):
+
     start_time = timeit.default_timer()
-    numbers = algo_without_func(n)
+    algo_without_func(n)
     end_time = timeit.default_timer()
     without_func_time = end_time - start_time
 
