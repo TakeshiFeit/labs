@@ -12,7 +12,7 @@ def algo_without_func(num):
     for i in range(0, num + 1, 2):
         counter1 = 0
         for symbol in str(i):
-            if symbol == '1' and counter1 == 0: 
+            if symbol == '1' and counter1 < 2: 
                 counter1 += 1
             else:
                 counter1 = 2
@@ -22,6 +22,14 @@ def algo_without_func(num):
 
 def algo_with_func(num):
     return list(filter(lambda num: (str(num).count('1') == 1), range(0, num + 1, 2)))
+
+def target(num):
+    if (num % 2 != 0):
+        num -= 1
+    for i in range(num, 0, -2):
+        if (str(i).count('1') == 1):
+            print('max number = ', i)
+            break
 
 def compare_perfomance(n):
 
@@ -44,6 +52,6 @@ without_func_time, with_func_time, numbers = compare_perfomance(n)
 print ('time required to execute algo_without_func =', without_func_time)
 print('time required to execute algo_with_func =', with_func_time)
 
-print('max number = ', numbers[-1])
 print('numbers: ', numbers)
+target(n)
 
