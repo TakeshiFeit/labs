@@ -12,7 +12,7 @@ def algo_without_func(num):
     for i in range(num + 1):
         counter1 = 0
         for symbol in str(i):
-            if symbol == '1' and counter1 < 2: 
+            if symbol == '1' and counter1 == 0: 
                 counter1 += 1
             else:
                 counter1 = 2
