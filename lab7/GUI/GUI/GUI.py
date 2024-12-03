@@ -57,8 +57,6 @@ def show_res():
         listbox.delete(0,'end')
         for i in res:
             listbox.insert(len(res), i)
-        scrollbar = ttk.Scrollbar(orient="vertical", command=listbox.yview)
-        scrollbar.pack(side=RIGHT, fill=Y)
 
         listbox["yscrollcommand"]=scrollbar.set
 
@@ -77,5 +75,7 @@ btn.pack()
 
 listbox = Listbox()
 listbox.pack(side = LEFT, fill = BOTH, expand = 1)
+scrollbar = ttk.Scrollbar(orient="vertical", command=listbox.yview)
+scrollbar.pack(side=RIGHT, fill=Y)
 
 root.mainloop()
