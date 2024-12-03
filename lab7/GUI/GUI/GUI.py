@@ -73,7 +73,7 @@ text.pack()
 entry = ttk.Entry(root)
 entry.pack()
 
-btn = ttk.Button(root, text = "start", command=show_res)
+btn = ttk.Button(root, text = "calculate", command=show_res)
 btn.pack()
 
 root.mainloop()
